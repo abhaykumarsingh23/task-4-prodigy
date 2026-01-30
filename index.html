@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhay Kumar Singh | Portfolio</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+<!-- Background -->
+<div class="bg-canvas"></div>
+<div class="shape shape-1"></div>
+<div class="shape shape-2"></div>
+<div class="shape shape-3"></div>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <span class="logo-text">AC</span>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-toggle" id="mobile-menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <h1>Hola I'm <span>Abhay Kumar Singh</span></h1>
+  <p class="hero-role">Frontend Web Developer</p>
+  <p>I build modern, responsive web applications.</p>
+  <a href="#projects" class="btn btn-primary">View Work</a>
+  <a href="#contact" class="btn btn-secondary">Contact</a>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>Passionate web developer with 1+ year experience.</p>
+
+  <div class="stats-grid">
+    <div class="stat-item"><span class="stat-number" data-count="2">0</span>Projects</div>
+    <div class="stat-item"><span class="stat-number" data-count="1">0</span>Years</div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+
+  <div class="skill-item">
+    <span>HTML</span>
+    <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <span>CSS</span>
+    <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+  </div>
+
+  <div class="skill-item">
+    <span>JavaScript</span>
+    <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="project-card">
+    <h3>E-Commerce Website</h3>
+    <p>React, Node, MongoDB</p>
+  </div>
+
+  <div class="project-card">
+    <h3>Task Manager</h3>
+    <p>JavaScript, Express</p>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <p>Email: abhayron4@gmail.com</p>
+  <p>Phone: +91 8999184860</p>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Name" required />
+    <input type="email" placeholder="Email" required />
+    <textarea placeholder="Message" required></textarea>
+    <button class="btn btn-primary">Send</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Ak. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
