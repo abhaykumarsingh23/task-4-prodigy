@@ -1,0 +1,64 @@
+/* Helpers */
+const $ = (q) => document.querySelector(q);
+const $$ = (q) => document.querySelectorAll(q);
+const on = (e, ev, f) => e && e.addEventListener(ev, f);
+
+/* Navbar */
+const nav = $("#navbar"),
+  menuBtn = $("#mobile-menu"),
+  menu = $("#nav-menu"),
+  links = $$(".nav-link");
+
+on(menuBtn, "click", () => [menuBtn, menu].forEach(e => e.classList.toggle("active")));
+
+links.forEach(l =>
+  on(l, "click", e => {
+    e.preventDefault();
+    [menuBtn, menu].forEach(e => e.classList.remove("active"));
+    const t = $(l.getAttribute("href"));
+    t && scrollTo({ top: t.offsetTop - 70, behavior: "smooth" });
+  })
+);
+
+/* Scroll */
+on(window, "scroll", () => {
+  nav.classList.toggle("scrolled", scrollY > 100);
+  $$("section").forEach(s =>
+    links.forEach(l =>
+      l.classList.toggle("active", scrollY + 100 >= s.offsetTop &&
+        scrollY + 100 < s.offsetTop + s.offsetHeight &&
+        l.getAttribute("href") === `#${s.id}`)
+    )
+  );
+});
+
+/* Observer */
+new IntersectionObserver(e =>
+  e.forEach(x => {
+    if (!x.isIntersecting) return;
+    x.target.style.animation = "fadeInUp .8s forwards";
+    const bar = x.target.querySelector(".skill-progress");
+    bar && (bar.style.width = bar.dataset.width + "%");
+  }), { threshold: .1 }
+).observe(document.body);
+
+/* Typing */
+(() => {
+  const el = $(".hero-role");
+  if (!el) return;
+  const r = ["Full-Stack Dev", "UI/UX Designer", "Problem Solver"];
+  let i = 0, c = 0, d = 0;
+  setInterval(() => {
+    el.textContent = r[i].slice(0, c += d ? -1 : 1);
+    if (c === r[i].length || c === 0) d ^= 1, c === 0 && (i = ++i % r.length);
+  }, 100);
+})();
+
+/* Dark Mode */
+on(document.body.appendChild(document.createElement("button")), "click",
+  () => document.body.classList.toggle("dark-mode"));
+
+/* Lazy Load */
+new IntersectionObserver(e =>
+  e.forEach(i => i.isIntersecting && ((i.target.src = i.target.dataset.src)))
+).observe(document.body);
